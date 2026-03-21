@@ -19,82 +19,56 @@
   --text-muted: #5a5a7a;
   --text-dim: #8888aa;
   --danger: #ff4466;
-  --warning: #ffaa00;
-  --success: #00ff9d;
   --radius: 16px;
   --radius-sm: 10px;
-  --radius-xs: 6px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
+  font-family: -apple-system, 'Hiragino Sans', sans-serif;
+  background: var(--bg); color: var(--text);
+  min-height: 100vh; overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
-
-/* ===== SCREENS ===== */
 .screen { display: none; flex-direction: column; min-height: 100vh; }
 .screen.active { display: flex; }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 52px 20px 14px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 52px 20px 14px; border-bottom: 1px solid var(--border);
+  background: var(--bg); position: sticky; top: 0; z-index: 10;
 }
-.header-title { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+.header-title { font-size: 18px; font-weight: 700; }
 .header-title .accent { color: var(--accent); }
-.header-actions { display: flex; gap: 8px; }
 .icon-btn {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 18px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); display: flex; align-items: center;
+  justify-content: center; cursor: pointer; font-size: 18px;
   -webkit-appearance: none; appearance: none;
 }
 
-/* ===== BOTTOM NAV ===== */
+/* BOTTOM NAV */
 .bottom-nav {
-  display: flex;
-  border-top: 1px solid var(--border);
-  background: var(--bg);
-  padding-bottom: 20px;
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
+  display: flex; border-top: 1px solid var(--border);
+  background: var(--bg); padding-bottom: 20px;
+  position: sticky; bottom: 0; z-index: 10;
 }
 .nav-btn {
-  flex: 1; padding: 10px 0;
-  display: flex; flex-direction: column;
-  align-items: center; gap: 3px;
-  cursor: pointer; background: none; border: none;
-  color: var(--text-muted); font-size: 10px;
+  flex: 1; padding: 10px 0; display: flex; flex-direction: column;
+  align-items: center; gap: 3px; cursor: pointer; background: none;
+  border: none; color: var(--text-muted); font-size: 10px;
   font-family: -apple-system, 'Hiragino Sans', sans-serif;
   -webkit-appearance: none; appearance: none;
-  transition: color 0.15s;
 }
 .nav-btn .nav-icon { font-size: 22px; }
 .nav-btn.active { color: var(--accent); }
 
-/* ===== RECORDING SCREEN ===== */
+/* REC SCREEN */
 .rec-body {
   flex: 1; display: flex; flex-direction: column;
-  padding: 16px 16px 8px; gap: 14px;
-  overflow-y: auto;
+  padding: 16px; gap: 14px; overflow-y: auto;
 }
-
 .status-bar {
   display: flex; align-items: center; gap: 8px;
   font-size: 13px; color: var(--text-muted);
@@ -107,85 +81,81 @@ body {
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
 .transcript-area {
-  flex: 1; min-height: 220px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px; overflow-y: auto;
-  position: relative;
+  flex: 1; min-height: 200px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px; overflow-y: auto; position: relative;
 }
 .placeholder { color: var(--text-muted); font-size: 14px; line-height: 1.8; }
 #transcript-text {
-  font-size: 15px; line-height: 1.9;
-  color: var(--text); white-space: pre-wrap; word-break: break-all;
+  font-size: 15px; line-height: 1.9; color: var(--text);
+  white-space: pre-wrap; word-break: break-all;
 }
-.interim { color: var(--text-dim); font-style: italic; }
-
-/* interim */
-.interim { color: var(--text-dim); font-style: italic; }
 
 .rec-center {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 12px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
 }
 .timer {
-  font-size: 28px; font-weight: 300;
-  color: var(--text-dim); letter-spacing: 0.08em;
-  font-variant-numeric: tabular-nums;
+  font-size: 28px; font-weight: 300; color: var(--text-dim);
+  letter-spacing: 0.08em;
 }
 .timer.recording { color: var(--danger); }
-
 .rec-btn {
   width: 88px; height: 88px; border-radius: 50%;
-  border: 3px solid var(--accent);
-  background: transparent;
+  border: 3px solid var(--accent); background: transparent;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; -webkit-appearance: none; appearance: none; padding: 0;
-  transition: border-color 0.2s;
 }
 .rec-btn-inner {
   width: 62px; height: 62px; border-radius: 50%;
-  background: var(--accent);
-  transition: all 0.2s; pointer-events: none;
+  background: var(--accent); transition: all 0.2s; pointer-events: none;
 }
 .rec-btn.recording { border-color: var(--danger); }
 .rec-btn.recording .rec-btn-inner {
-  background: var(--danger); border-radius: 10px;
-  width: 38px; height: 38px;
+  background: var(--danger); border-radius: 10px; width: 38px; height: 38px;
 }
 .rec-label { font-size: 13px; color: var(--text-muted); }
 
+.rec-stopped-btns {
+  display: none; flex-direction: row; gap: 10px; width: 100%;
+}
+.btn-resume {
+  flex: 1; padding: 14px; border-radius: var(--radius-sm); border: none;
+  background: linear-gradient(135deg, var(--accent3), var(--accent));
+  color: #000; font-size: 14px; font-weight: 700;
+  font-family: -apple-system, 'Hiragino Sans', sans-serif;
+  cursor: pointer; -webkit-appearance: none; appearance: none;
+}
+.btn-new-rec {
+  flex: 1; padding: 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--surface2);
+  color: var(--text-dim); font-size: 14px;
+  font-family: -apple-system, 'Hiragino Sans', sans-serif;
+  cursor: pointer; -webkit-appearance: none; appearance: none;
+}
 .save-btn {
-  width: 100%; padding: 16px;
-  border-radius: var(--radius-sm); border: none;
+  width: 100%; padding: 16px; border-radius: var(--radius-sm); border: none;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   color: #fff; font-size: 15px; font-weight: 700;
   font-family: -apple-system, 'Hiragino Sans', sans-serif;
   cursor: pointer; -webkit-appearance: none; appearance: none;
-  letter-spacing: 0.02em;
 }
 .save-btn:disabled { opacity: 0.25; cursor: not-allowed; }
 
-/* ===== LIST SCREEN ===== */
+/* LIST SCREEN */
 .list-body {
-  flex: 1; overflow-y: auto;
-  padding: 14px 16px; display: flex;
-  flex-direction: column; gap: 10px;
+  flex: 1; overflow-y: auto; padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 10px;
 }
 .empty-state {
   flex: 1; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  gap: 12px; color: var(--text-muted);
-  text-align: center; padding: 40px;
+  gap: 12px; color: var(--text-muted); text-align: center; padding: 40px;
 }
 .empty-icon { font-size: 48px; opacity: 0.4; }
 .empty-state p { font-size: 14px; line-height: 1.7; }
-
 .memo-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px; cursor: pointer;
 }
 .memo-card-top {
   display: flex; align-items: flex-start;
@@ -198,18 +168,16 @@ body {
 }
 .memo-date { font-size: 11px; color: var(--accent); margin-top: 2px; }
 .memo-dict-tag {
-  font-size: 10px; color: var(--accent2);
-  border: 1px solid var(--accent2);
+  font-size: 10px; color: var(--accent2); border: 1px solid var(--accent2);
   border-radius: 4px; padding: 1px 5px; white-space: nowrap;
   margin-top: 3px; display: inline-block;
 }
 .memo-actions { display: flex; gap: 6px; flex-shrink: 0; }
 .memo-action-btn {
   width: 34px; height: 34px; border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface2); color: var(--text-dim);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 15px;
+  border: 1px solid var(--border); background: var(--surface2);
+  color: var(--text-dim); display: flex; align-items: center;
+  justify-content: center; cursor: pointer; font-size: 15px;
   -webkit-appearance: none; appearance: none; padding: 0;
 }
 .memo-action-btn.share { color: var(--accent); border-color: var(--accent); }
@@ -221,13 +189,12 @@ body {
 }
 .memo-chars { font-size: 11px; color: var(--text-muted); }
 
-/* ===== DETAIL SCREEN ===== */
+/* DETAIL SCREEN */
 .detail-body { flex: 1; overflow-y: auto; padding: 16px; }
 .detail-title-wrap { margin-bottom: 12px; }
 .detail-title {
   font-size: 17px; font-weight: 700; color: var(--text);
-  line-height: 1.4; cursor: pointer;
-  border-bottom: 1px dashed var(--border); padding-bottom: 6px;
+  cursor: pointer; border-bottom: 1px dashed var(--border); padding-bottom: 6px;
 }
 .detail-title-hint { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
 .detail-meta { font-size: 12px; color: var(--accent); margin-bottom: 6px; }
@@ -237,108 +204,52 @@ body {
   white-space: pre-wrap; word-break: break-all;
 }
 .detail-footer {
-  padding: 12px 16px 28px;
-  border-top: 1px solid var(--border);
+  padding: 12px 16px 28px; border-top: 1px solid var(--border);
   display: flex; gap: 10px;
 }
 .detail-btn {
-  flex: 1; padding: 15px;
-  border-radius: var(--radius-sm);
+  flex: 1; padding: 15px; border-radius: var(--radius-sm);
   font-size: 14px; font-weight: 600;
   font-family: -apple-system, 'Hiragino Sans', sans-serif;
   cursor: pointer; -webkit-appearance: none; appearance: none;
   display: flex; align-items: center; justify-content: center; gap: 6px;
 }
 .detail-btn.copy {
-  border: 1px solid var(--accent2);
-  background: transparent; color: var(--accent2);
+  border: 1px solid var(--accent2); background: transparent; color: var(--accent2);
 }
 .detail-btn.share {
   border: none;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff;
 }
 
-/* ===== SETTINGS SCREEN ===== */
+/* SETTINGS SCREEN */
 .settings-body {
-  flex: 1; overflow-y: auto;
-  padding: 16px; display: flex;
-  flex-direction: column; gap: 20px;
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 20px;
 }
 .settings-section {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
 }
 .settings-section-title {
-  font-size: 11px; font-weight: 700;
-  color: var(--text-muted); letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 12px 16px 8px;
-  border-bottom: 1px solid var(--border);
+  font-size: 11px; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 12px 16px 8px; border-bottom: 1px solid var(--border);
 }
-.settings-row {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding: 13px 16px;
-  border-bottom: 1px solid var(--border);
-}
-.settings-row:last-child { border-bottom: none; }
-.settings-row-label { font-size: 14px; color: var(--text); }
-.settings-row-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-
-/* トグルスイッチ */
-.toggle {
-  width: 48px; height: 28px; border-radius: 14px;
-  background: var(--border); position: relative;
-  cursor: pointer; flex-shrink: 0;
-  transition: background 0.2s;
-  -webkit-appearance: none; appearance: none; border: none;
-}
-.toggle.on { background: var(--accent); }
-.toggle::after {
-  content: ''; position: absolute;
-  width: 22px; height: 22px; border-radius: 50%;
-  background: #fff; top: 3px; left: 3px;
-  transition: transform 0.2s;
-}
-.toggle.on::after { transform: translateX(20px); }
-
-/* スライダー */
-.slider-wrap { display: flex; align-items: center; gap: 10px; }
-.slider {
-  -webkit-appearance: none; appearance: none;
-  width: 120px; height: 4px;
-  border-radius: 2px; background: var(--border); outline: none;
-}
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; appearance: none;
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--accent); cursor: pointer;
-}
-.slider-val { font-size: 12px; color: var(--accent); min-width: 32px; text-align: right; }
-
-/* 辞書管理 */
 .dict-group {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  margin: 0 16px 12px; overflow: hidden;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); margin: 0 16px 12px; overflow: hidden;
 }
 .dict-group-header {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding: 10px 12px;
-  background: var(--surface);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px; background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
 .dict-group-name { font-size: 14px; font-weight: 600; color: var(--accent2); }
 .dict-group-actions { display: flex; gap: 6px; }
 .dict-small-btn {
-  padding: 4px 10px; border-radius: 6px;
-  font-size: 12px; cursor: pointer;
-  -webkit-appearance: none; appearance: none;
+  padding: 4px 10px; border-radius: 6px; font-size: 12px;
+  cursor: pointer; -webkit-appearance: none; appearance: none;
   font-family: -apple-system, 'Hiragino Sans', sans-serif;
 }
 .dict-small-btn.add-term {
@@ -348,8 +259,7 @@ body {
   border: 1px solid var(--danger); background: transparent; color: var(--danger);
 }
 .dict-term-row {
-  display: flex; align-items: center;
-  padding: 8px 12px; gap: 8px;
+  display: flex; align-items: center; padding: 8px 12px; gap: 8px;
   border-bottom: 1px solid var(--border);
 }
 .dict-term-row:last-child { border-bottom: none; }
@@ -357,37 +267,31 @@ body {
 .dict-arrow { font-size: 12px; color: var(--border); }
 .dict-replace { font-size: 13px; color: var(--text); }
 .dict-del-term {
-  margin-left: auto; width: 24px; height: 24px;
-  border-radius: 50%; border: none;
-  background: transparent; color: var(--danger);
+  margin-left: auto; width: 24px; height: 24px; border-radius: 50%;
+  border: none; background: transparent; color: var(--danger);
   font-size: 16px; cursor: pointer; display: flex;
   align-items: center; justify-content: center;
   -webkit-appearance: none; appearance: none; padding: 0;
 }
 .add-dict-group-btn {
-  display: flex; align-items: center; justify-content: center;
-  gap: 6px; width: calc(100% - 32px);
-  margin: 0 16px 16px; padding: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: calc(100% - 32px); margin: 0 16px 16px; padding: 12px;
   border: 1px dashed var(--accent2); border-radius: var(--radius-sm);
-  background: transparent; color: var(--accent2);
-  font-size: 14px; cursor: pointer;
-  -webkit-appearance: none; appearance: none;
+  background: transparent; color: var(--accent2); font-size: 14px;
+  cursor: pointer; -webkit-appearance: none; appearance: none;
   font-family: -apple-system, 'Hiragino Sans', sans-serif;
 }
 
-/* ===== DIALOG / MODAL ===== */
+/* OVERLAYS */
 .overlay {
   display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.8); z-index: 50;
-  align-items: flex-end;
+  background: rgba(0,0,0,0.8); z-index: 50; align-items: flex-end;
 }
-.overlay.show { display: flex; }
 .overlay.center { align-items: center; justify-content: center; padding: 20px; }
-
+.overlay.show { display: flex; }
 .sheet {
   width: 100%; background: var(--surface);
-  border-radius: 20px 20px 0 0;
-  padding: 20px 16px 36px;
+  border-radius: 20px 20px 0 0; padding: 20px 16px 36px;
   display: flex; flex-direction: column; gap: 14px;
 }
 .modal {
@@ -399,47 +303,44 @@ body {
 .dialog-msg { font-size: 14px; color: var(--text-dim); text-align: center; line-height: 1.6; }
 .dialog-btns { display: flex; gap: 10px; }
 .dialog-btn {
-  flex: 1; padding: 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--surface2); color: var(--text);
-  font-size: 15px; font-family: -apple-system, 'Hiragino Sans', sans-serif;
+  flex: 1; padding: 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--surface2);
+  color: var(--text); font-size: 15px;
+  font-family: -apple-system, 'Hiragino Sans', sans-serif;
   cursor: pointer; -webkit-appearance: none; appearance: none;
 }
 .dialog-btn.primary {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   border: none; color: #fff; font-weight: 700;
 }
-.dialog-btn.danger { background: var(--danger); border-color: var(--danger); color: #fff; font-weight: 700; }
-
-/* テキスト入力 */
+.dialog-btn.danger {
+  background: var(--danger); border-color: var(--danger);
+  color: #fff; font-weight: 700;
+}
 .modal-input {
-  width: 100%; padding: 12px 14px;
-  background: var(--surface2); border: 1px solid var(--border);
-  border-radius: var(--radius-sm); color: var(--text);
-  font-size: 15px; font-family: -apple-system, 'Hiragino Sans', sans-serif;
+  width: 100%; padding: 12px 14px; background: var(--surface2);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); font-size: 15px;
+  font-family: -apple-system, 'Hiragino Sans', sans-serif;
   outline: none; -webkit-appearance: none; appearance: none;
 }
 .modal-input:focus { border-color: var(--accent); }
 .modal-label { font-size: 13px; color: var(--text-muted); }
-
-/* 辞書選択 */
 .dict-select {
-  width: 100%; padding: 12px 14px;
-  background: var(--surface2); border: 1px solid var(--border);
-  border-radius: var(--radius-sm); color: var(--text);
-  font-size: 15px; font-family: -apple-system, 'Hiragino Sans', sans-serif;
+  width: 100%; padding: 12px 14px; background: var(--surface2);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); font-size: 15px;
+  font-family: -apple-system, 'Hiragino Sans', sans-serif;
   outline: none; -webkit-appearance: none; appearance: none;
 }
 
-/* ===== TOAST ===== */
+/* TOAST */
 .toast {
   position: fixed; bottom: 80px; left: 50%;
   transform: translateX(-50%) translateY(10px);
   background: var(--surface2); border: 1px solid var(--border);
-  color: var(--text); padding: 10px 18px;
-  border-radius: 100px; font-size: 13px;
-  opacity: 0; transition: all 0.25s;
+  color: var(--text); padding: 10px 18px; border-radius: 100px;
+  font-size: 13px; opacity: 0; transition: all 0.25s;
   pointer-events: none; white-space: nowrap; z-index: 100;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
@@ -447,13 +348,11 @@ body {
 </head>
 <body>
 
-<!-- ===== 録音画面 ===== -->
+<!-- 録音画面 -->
 <div class="screen active" id="screen-rec">
   <div class="header">
     <div class="header-title">議事録<span class="accent">●</span></div>
-    <div class="header-actions">
-      <button class="icon-btn" id="btn-settings-rec" type="button">⚙️</button>
-    </div>
+    <button class="icon-btn" id="btn-settings-rec" type="button">⚙️</button>
   </div>
   <div class="rec-body">
     <div class="status-bar">
@@ -471,16 +370,15 @@ body {
       </button>
       <span class="rec-label" id="rec-label">タップして録音開始</span>
     </div>
-    <!-- 停止後に表示するボタン群 -->
-    <div id="rec-stopped-btns" style="display:none; display:none; flex-direction:row; gap:10px; width:100%;">
-      <button class="save-btn" id="btn-resume" type="button" style="background:linear-gradient(135deg,var(--accent3),var(--accent));flex:1;">▶ 続きから録音</button>
-      <button class="save-btn" id="btn-new-rec" type="button" style="background:var(--surface2);border:1px solid var(--border);color:var(--text-dim);flex:1;">＋ 新規録音</button>
+    <div class="rec-stopped-btns" id="rec-stopped-btns">
+      <button class="btn-resume" id="btn-resume" type="button">▶ 続きから録音</button>
+      <button class="btn-new-rec" id="btn-new-rec" type="button">＋ 新規録音</button>
     </div>
     <button class="save-btn" id="save-btn" type="button" disabled>📝 議事録を保存する</button>
   </div>
 </div>
 
-<!-- ===== 一覧画面 ===== -->
+<!-- 一覧画面 -->
 <div class="screen" id="screen-list">
   <div class="header">
     <div class="header-title">議事録<span class="accent">一覧</span></div>
@@ -489,7 +387,7 @@ body {
   <div class="list-body" id="list-body"></div>
 </div>
 
-<!-- ===== 詳細画面 ===== -->
+<!-- 詳細画面 -->
 <div class="screen" id="screen-detail">
   <div class="header">
     <button class="icon-btn" id="btn-detail-back" type="button">←</button>
@@ -511,31 +409,26 @@ body {
   </div>
 </div>
 
-<!-- ===== 設定画面 ===== -->
+<!-- 設定画面 -->
 <div class="screen" id="screen-settings">
   <div class="header">
     <button class="icon-btn" id="btn-settings-back" type="button">←</button>
     <div class="header-title">設定</div>
     <div style="width:40px"></div>
   </div>
-  <div class="settings-body" id="settings-body">
-
-    <!-- 辞書グループ -->
+  <div class="settings-body">
     <div class="settings-section">
       <div class="settings-section-title">カスタム辞書グループ</div>
       <div id="dict-groups-container"></div>
       <button class="add-dict-group-btn" id="btn-add-dict-group" type="button">＋ 辞書グループを追加</button>
     </div>
-
-    <!-- バージョン情報 -->
     <div style="text-align:center; padding:8px 0 24px; font-size:12px; color:var(--text-muted);">
       議事録アプリ v2.3
     </div>
-
   </div>
 </div>
 
-<!-- ===== ボトムナビ ===== -->
+<!-- ボトムナビ -->
 <div class="bottom-nav" id="bottom-nav">
   <button class="nav-btn active" id="nav-rec" type="button">
     <span class="nav-icon">🎙️</span>録音
@@ -545,7 +438,7 @@ body {
   </button>
 </div>
 
-<!-- ===== 保存ダイアログ ===== -->
+<!-- 保存ダイアログ -->
 <div class="overlay center" id="save-dialog">
   <div class="modal">
     <div class="dialog-title">議事録を保存</div>
@@ -555,9 +448,7 @@ body {
     </div>
     <div>
       <div class="modal-label" style="margin-bottom:6px">辞書グループ（任意）</div>
-      <select class="dict-select" id="save-dict-select">
-        <option value="">なし</option>
-      </select>
+      <select class="dict-select" id="save-dict-select"><option value="">なし</option></select>
     </div>
     <div class="dialog-btns">
       <button class="dialog-btn" id="btn-save-cancel" type="button">キャンセル</button>
@@ -566,7 +457,7 @@ body {
   </div>
 </div>
 
-<!-- ===== タイトル編集ダイアログ ===== -->
+<!-- タイトル編集ダイアログ -->
 <div class="overlay center" id="rename-dialog">
   <div class="modal">
     <div class="dialog-title">タイトルを編集</div>
@@ -578,7 +469,7 @@ body {
   </div>
 </div>
 
-<!-- ===== 削除確認ダイアログ ===== -->
+<!-- 削除確認ダイアログ -->
 <div class="overlay" id="delete-dialog">
   <div class="sheet">
     <div class="dialog-title">削除の確認</div>
@@ -590,7 +481,7 @@ body {
   </div>
 </div>
 
-<!-- ===== 新規録音確認ダイアログ ===== -->
+<!-- 新規録音確認ダイアログ -->
 <div class="overlay" id="newrec-dialog">
   <div class="sheet">
     <div class="dialog-title">新規録音の確認</div>
@@ -602,7 +493,7 @@ body {
   </div>
 </div>
 
-<!-- ===== 辞書グループ名入力 ===== -->
+<!-- 辞書グループ追加ダイアログ -->
 <div class="overlay center" id="dict-group-dialog">
   <div class="modal">
     <div class="dialog-title">辞書グループを追加</div>
@@ -614,7 +505,7 @@ body {
   </div>
 </div>
 
-<!-- ===== 用語追加ダイアログ ===== -->
+<!-- 用語追加ダイアログ -->
 <div class="overlay center" id="dict-term-dialog">
   <div class="modal">
     <div class="dialog-title">用語を追加</div>
@@ -640,7 +531,6 @@ body {
 var recognition = null;
 var isRecording = false;
 var finalText = '';
-var APP_VERSION = 'v2.3';
 var timerInterval = null;
 var seconds = 0;
 var currentScreen = 'screen-rec';
@@ -649,105 +539,40 @@ var deleteTargetId = null;
 var currentDetailId = null;
 var dictGroupTarget = null;
 
-// ===== DICTIONARIES =====
-function getDicts() {
-  try { return JSON.parse(localStorage.getItem('dicts') || '[]'); } catch(e) { return []; }
+// ===== HELPERS =====
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
-function saveDicts(dicts) { localStorage.setItem('dicts', JSON.stringify(dicts)); }
-
-function renderDictGroups() {
-  var dicts = getDicts();
-  var container = document.getElementById('dict-groups-container');
-  if (!container) return;
-
-  if (dicts.length === 0) {
-    container.innerHTML = '<div style="padding:12px 16px;font-size:13px;color:var(--text-muted)">辞書グループがありません</div>';
-    return;
-  }
-
-  container.innerHTML = dicts.map(function(g) {
-    var termsHtml = g.terms.map(function(t) {
-      return '<div class="dict-term-row" data-gid="'+g.id+'" data-tid="'+t.id+'">' +
-        '<span class="dict-term">'+esc(t.from)+'</span>' +
-        '<span class="dict-arrow">→</span>' +
-        '<span class="dict-replace">'+esc(t.to)+'</span>' +
-        '<button class="dict-del-term" data-gid="'+g.id+'" data-tid="'+t.id+'" type="button">×</button>' +
-        '</div>';
-    }).join('');
-
-    return '<div class="dict-group" data-gid="'+g.id+'">' +
-      '<div class="dict-group-header">' +
-      '<span class="dict-group-name">'+esc(g.name)+'</span>' +
-      '<div class="dict-group-actions">' +
-      '<button class="dict-small-btn add-term" data-gid="'+g.id+'" type="button">＋用語</button>' +
-      '<button class="dict-small-btn del-group" data-gid="'+g.id+'" type="button">削除</button>' +
-      '</div></div>' +
-      termsHtml +
-      '</div>';
-  }).join('');
-
-  // イベント設定
-  container.querySelectorAll('.add-term').forEach(function(btn) {
-    var gid = btn.getAttribute('data-gid');
-    addTap2(btn, function() { openAddTerm(gid); });
-  });
-  container.querySelectorAll('.del-group').forEach(function(btn) {
-    var gid = btn.getAttribute('data-gid');
-    addTap2(btn, function() { deleteGroup(gid); });
-  });
-  container.querySelectorAll('.dict-del-term').forEach(function(btn) {
-    var gid = btn.getAttribute('data-gid');
-    var tid = btn.getAttribute('data-tid');
-    addTap2(btn, function() { deleteTerm(gid, tid); });
-  });
-
-  updateDictSelects();
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2800);
 }
+function showOverlay(id) { document.getElementById(id).classList.add('show'); }
+function hideOverlay(id) { document.getElementById(id).classList.remove('show'); }
 
-function updateDictSelects() {
-  var dicts = getDicts();
-  var selects = document.querySelectorAll('.dict-select');
-  selects.forEach(function(sel) {
-    var cur = sel.value;
-    sel.innerHTML = '<option value="">なし</option>' +
-      dicts.map(function(g) {
-        return '<option value="'+g.id+'">'+esc(g.name)+'</option>';
-      }).join('');
-    sel.value = cur;
-  });
+function addTap(id, fn) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('touchend', function(e) { e.preventDefault(); fn(); });
+  el.addEventListener('click', fn);
 }
-
-function openAddTerm(gid) {
-  dictGroupTarget = gid;
-  document.getElementById('dict-term-from').value = '';
-  document.getElementById('dict-term-to').value = '';
-  showOverlay('dict-term-dialog');
-}
-
-function deleteGroup(gid) {
-  var dicts = getDicts().filter(function(g) { return g.id !== gid; });
-  saveDicts(dicts);
-  renderDictGroups();
-  showToast('🗑️ グループを削除しました');
-}
-
-function deleteTerm(gid, tid) {
-  var dicts = getDicts();
-  dicts = dicts.map(function(g) {
-    if (g.id === gid) {
-      g.terms = g.terms.filter(function(t) { return t.id !== tid; });
-    }
-    return g;
-  });
-  saveDicts(dicts);
-  renderDictGroups();
+function addTap2(el, fn) {
+  el.addEventListener('touchend', function(e) { e.preventDefault(); e.stopPropagation(); fn(); });
+  el.addEventListener('click', function(e) { e.stopPropagation(); fn(); });
 }
 
 // ===== STORAGE =====
 function getMemos() {
   try { return JSON.parse(localStorage.getItem('memos') || '[]'); } catch(e) { return []; }
 }
-function saveMemos(memos) { localStorage.setItem('memos', JSON.stringify(memos)); }
+function saveMemos(m) { localStorage.setItem('memos', JSON.stringify(m)); }
+function getDicts() {
+  try { return JSON.parse(localStorage.getItem('dicts') || '[]'); } catch(e) { return []; }
+}
+function saveDicts(d) { localStorage.setItem('dicts', JSON.stringify(d)); }
 
 // ===== SCREEN =====
 function showScreen(id) {
@@ -762,119 +587,24 @@ function showScreen(id) {
   if (id === 'screen-list') renderList();
   if (id === 'screen-settings') renderDictGroups();
 }
-
 function goBack() {
-  if (prevScreen === 'screen-settings') showScreen('screen-rec');
-  else showScreen(prevScreen);
+  showScreen(prevScreen === 'screen-settings' ? 'screen-rec' : prevScreen);
 }
 
-// ===== TAP HELPER =====
-function addTap(id, fn) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  el.addEventListener('touchend', function(e) { e.preventDefault(); fn(); });
-  el.addEventListener('click', fn);
+// ===== TIMER =====
+function startTimer() {
+  seconds = 0; updateTimerDisplay();
+  timerInterval = setInterval(function() { seconds++; updateTimerDisplay(); }, 1000);
 }
-function addTap2(el, fn) {
-  el.addEventListener('touchend', function(e) { e.preventDefault(); e.stopPropagation(); fn(); });
-  el.addEventListener('click', function(e) { e.stopPropagation(); fn(); });
+function stopTimer() {
+  clearInterval(timerInterval); timerInterval = null; seconds = 0;
+  document.getElementById('timer').textContent = '00:00';
 }
-
-// ===== OVERLAY =====
-function showOverlay(id) { document.getElementById(id).classList.add('show'); }
-function hideOverlay(id) { document.getElementById(id).classList.remove('show'); }
-
-// ===== INIT =====
-window.onload = function() {
-  updateDictSelects();
-
-  // マイク権限の状態を確認
-  if (navigator.permissions) {
-    navigator.permissions.query({ name: 'microphone' }).then(function(result) {
-      if (result.state === 'denied') {
-        showToast('⚠️ マイクが拒否されています。設定から許可してください。');
-      }
-    }).catch(function() {});
-  }
-
-  // ナビ
-  addTap('nav-rec', function() { showScreen('screen-rec'); });
-  addTap('nav-list', function() { showScreen('screen-list'); });
-
-  // 設定
-  addTap('btn-settings-rec', function() { showScreen('screen-settings'); });
-  addTap('btn-settings-list', function() { showScreen('screen-settings'); });
-  addTap('btn-settings-back', function() { goBack(); });
-
-  // 詳細
-  addTap('btn-detail-back', function() { showScreen('screen-list'); });
-  addTap('detail-title', function() { openRenameDialog(); });
-
-  // 録音
-  addTap('rec-btn', function() { toggleRecording(); });
-  addTap('save-btn', function() { openSaveDialog(); });
-  addTap('btn-resume', function() { startRecording(false); });
-  addTap('btn-new-rec', function() { confirmNewRecording(); });
-
-  // 詳細ボタン
-  addTap('btn-copy-prompt', function() { copyWithPrompt(); });
-  addTap('btn-share-detail', function() { shareDetail(); });
-
-  // 保存ダイアログ
-  addTap('btn-save-cancel', function() { hideOverlay('save-dialog'); });
-  addTap('btn-save-confirm', function() { confirmSave(); });
-
-  // リネームダイアログ
-  addTap('btn-rename-cancel', function() { hideOverlay('rename-dialog'); });
-  addTap('btn-rename-confirm', function() { confirmRename(); });
-
-  // 削除ダイアログ
-  addTap('btn-del-cancel', function() { hideOverlay('delete-dialog'); });
-  addTap('btn-del-confirm', function() { confirmDelete(); });
-
-  // 新規録音確認ダイアログ
-  addTap('btn-newrec-cancel', function() { hideOverlay('newrec-dialog'); });
-  addTap('btn-newrec-confirm', function() {
-    hideOverlay('newrec-dialog');
-    startRecording(true);
-  });
-
-  // 辞書グループ追加
-  addTap('btn-add-dict-group', function() {
-    document.getElementById('dict-group-name-input').value = '';
-    showOverlay('dict-group-dialog');
-  });
-  addTap('btn-dict-group-cancel', function() { hideOverlay('dict-group-dialog'); });
-  addTap('btn-dict-group-confirm', function() {
-    var name = document.getElementById('dict-group-name-input').value.trim();
-    if (!name) return;
-    var dicts = getDicts();
-    dicts.push({ id: Date.now().toString(), name: name, terms: [] });
-    saveDicts(dicts);
-    renderDictGroups();
-    hideOverlay('dict-group-dialog');
-    showToast('✅ グループを追加しました');
-  });
-
-  // 用語追加
-  addTap('btn-term-cancel', function() { hideOverlay('dict-term-dialog'); });
-  addTap('btn-term-confirm', function() {
-    var from = document.getElementById('dict-term-from').value.trim();
-    var to = document.getElementById('dict-term-to').value.trim();
-    if (!from || !to) { showToast('読みと正式名称を入力してください'); return; }
-    var dicts = getDicts();
-    dicts = dicts.map(function(g) {
-      if (g.id === dictGroupTarget) {
-        g.terms.push({ id: Date.now().toString(), from: from, to: to });
-      }
-      return g;
-    });
-    saveDicts(dicts);
-    renderDictGroups();
-    hideOverlay('dict-term-dialog');
-    showToast('✅ 用語を追加しました');
-  });
-};
+function updateTimerDisplay() {
+  var m = String(Math.floor(seconds/60)).padStart(2,'0');
+  var s = String(seconds%60).padStart(2,'0');
+  document.getElementById('timer').textContent = m+':'+s;
+}
 
 // ===== RECORDING =====
 function toggleRecording() {
@@ -891,16 +621,11 @@ function startRecording(isNew) {
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) { showToast('このブラウザは音声認識に非対応です'); return; }
 
-  // 新規録音の場合のみテキストをリセット
   if (isNew) {
     finalText = '';
-    document.getElementById('transcript-text').innerHTML = '';
+    document.getElementById('transcript-text').textContent = '';
   }
 
-  // silenceDetectorを必ず止める（二重起動防止）
-  stopSilenceDetector();
-
-  // 前回のrecognitionを破棄
   if (recognition) {
     recognition.onend = null;
     recognition.onerror = null;
@@ -910,8 +635,7 @@ function startRecording(isNew) {
     recognition = null;
   }
 
-  var SR2 = window.SpeechRecognition || window.webkitSpeechRecognition;
-  recognition = new SR2();
+  recognition = new SR();
   recognition.lang = 'ja-JP';
   recognition.continuous = true;
   recognition.interimResults = true;
@@ -932,7 +656,9 @@ function startRecording(isNew) {
         interim = e.results[i][0].transcript;
       }
     }
-    renderTranscript(interim);
+    var el = document.getElementById('transcript-text');
+    el.textContent = finalText + interim;
+    el.parentElement.scrollTop = el.parentElement.scrollHeight;
   };
 
   recognition.onerror = function(e) {
@@ -942,7 +668,6 @@ function startRecording(isNew) {
   };
 
   recognition.onend = function() {
-    // 録音中フラグが立っている場合のみ再起動
     if (isRecording) {
       try { recognition.start(); } catch(ex) {}
     }
@@ -958,7 +683,6 @@ function startRecording(isNew) {
 
 function stopRecording() {
   isRecording = false;
-
   if (recognition) {
     recognition.onend = null;
     recognition.onerror = null;
@@ -967,11 +691,8 @@ function stopRecording() {
     try { recognition.abort(); } catch(e) {}
     recognition = null;
   }
-
   stopTimer();
   updateRecUI(false);
-  renderTranscript('');
-
   var has = finalText.trim().length > 0;
   document.getElementById('save-btn').disabled = !has;
   if (!has) document.getElementById('placeholder').style.display = 'block';
@@ -979,26 +700,17 @@ function stopRecording() {
 
 function confirmNewRecording() {
   if (finalText.trim().length > 0) {
-    // テキストがある場合はダイアログで確認（confirm()はiOSでマイクブロックされるため使わない）
     showOverlay('newrec-dialog');
   } else {
     startRecording(true);
   }
 }
 
-function renderTranscript(interim) {
-  var el = document.getElementById('transcript-text');
-  el.textContent = finalText + (interim ? interim : '');
-  el.parentElement.scrollTop = el.parentElement.scrollHeight;
-}
-
 function updateRecUI(rec) {
   document.getElementById('rec-btn').classList.toggle('recording', rec);
   document.getElementById('status-dot').classList.toggle('recording', rec);
   document.getElementById('timer').classList.toggle('recording', rec);
-
   var has = finalText.trim().length > 0;
-
   if (rec) {
     document.getElementById('status-label').textContent = '録音中...';
     document.getElementById('rec-label').textContent = 'タップして停止';
@@ -1009,69 +721,34 @@ function updateRecUI(rec) {
     document.getElementById('status-label').textContent = '録音待機中';
     document.getElementById('rec-label').textContent = 'タップして録音開始';
   }
-
-  var stoppedBtns = document.getElementById('rec-stopped-btns');
-  if (!rec && has) {
-    stoppedBtns.style.display = 'flex';
-  } else {
-    stoppedBtns.style.display = 'none';
-  }
-}
-  el.parentElement.scrollTop = el.parentElement.scrollHeight;
-}
-
-// ===== TIMER =====
-function startTimer() {
-  seconds = 0; updateTimerDisplay();
-  timerInterval = setInterval(function() { seconds++; updateTimerDisplay(); }, 1000);
-}
-function stopTimer() {
-  clearInterval(timerInterval); timerInterval = null; seconds = 0;
-  document.getElementById('timer').textContent = '00:00';
-}
-function updateTimerDisplay() {
-  var m = String(Math.floor(seconds/60)).padStart(2,'0');
-  var s = String(seconds%60).padStart(2,'0');
-  document.getElementById('timer').textContent = m+':'+s;
+  document.getElementById('rec-stopped-btns').style.display = (!rec && has) ? 'flex' : 'none';
 }
 
 // ===== SAVE =====
 function openSaveDialog() {
   if (!finalText.trim()) return;
-  var now = new Date();
-  document.getElementById('save-title-input').value = formatDate(now);
+  document.getElementById('save-title-input').value = formatDate(new Date());
   updateDictSelects();
   document.getElementById('save-dict-select').value = '';
   showOverlay('save-dialog');
 }
-
 function confirmSave() {
-  var title = document.getElementById('save-title-input').value.trim();
-  if (!title) title = formatDate(new Date());
+  var title = document.getElementById('save-title-input').value.trim() || formatDate(new Date());
   var dictId = document.getElementById('save-dict-select').value;
   var now = new Date();
-  var id = now.getTime().toString();
   var memos = getMemos();
-  memos.unshift({
-    id: id, title: title, text: finalText.trim(),
-    dictId: dictId, createdAt: now.toISOString()
-  });
+  memos.unshift({ id: now.getTime().toString(), title: title, text: finalText.trim(), dictId: dictId, createdAt: now.toISOString() });
   saveMemos(memos);
   finalText = '';
-  document.getElementById('transcript-text').innerHTML = '';
+  document.getElementById('transcript-text').textContent = '';
   document.getElementById('placeholder').style.display = 'block';
   document.getElementById('save-btn').disabled = true;
   stopTimer();
   hideOverlay('save-dialog');
   showToast('✅ 保存しました');
 }
-
 function formatDate(d) {
-  return d.getFullYear()+'-'+
-    String(d.getMonth()+1).padStart(2,'0')+'-'+
-    String(d.getDate()).padStart(2,'0')+' '+
-    String(d.getHours()).padStart(2,'0')+':'+
-    String(d.getMinutes()).padStart(2,'0');
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
 }
 
 // ===== LIST =====
@@ -1090,19 +767,16 @@ function renderList() {
       if (d) dictName = '<div class="memo-dict-tag">📚 '+esc(d.name)+'</div>';
     }
     return '<div class="memo-card" data-id="'+m.id+'">' +
-      '<div class="memo-card-top">' +
-      '<div class="memo-title-wrap">' +
+      '<div class="memo-card-top"><div class="memo-title-wrap">' +
       '<div class="memo-title">'+esc(m.title)+'</div>' +
       '<div class="memo-date">'+m.createdAt.slice(0,16).replace('T',' ')+'</div>' +
-      dictName +
-      '</div>' +
+      dictName+'</div>' +
       '<div class="memo-actions">' +
       '<button class="memo-action-btn share" data-share="'+m.id+'" type="button">🔗</button>' +
       '<button class="memo-action-btn del" data-del="'+m.id+'" type="button">🗑️</button>' +
       '</div></div>' +
       '<div class="memo-preview">'+esc(m.text.replace(/\n/g,' '))+'</div>' +
-      '<div class="memo-chars">'+m.text.length+'文字</div>' +
-      '</div>';
+      '<div class="memo-chars">'+m.text.length+'文字</div></div>';
   }).join('');
 
   body.querySelectorAll('.memo-card').forEach(function(card) {
@@ -1122,23 +796,17 @@ function renderList() {
 // ===== DETAIL =====
 function openDetail(id) {
   var memos = getMemos();
-  var m = null;
-  for (var i=0; i<memos.length; i++) { if (memos[i].id===id) { m=memos[i]; break; } }
+  var m = memos.find(function(x) { return x.id === id; });
   if (!m) return;
   currentDetailId = id;
-
   document.getElementById('detail-title').textContent = m.title;
   document.getElementById('detail-meta').textContent = m.createdAt.slice(0,16).replace('T',' ');
-
   var dicts = getDicts();
   var dictEl = document.getElementById('detail-dict');
   if (m.dictId) {
     var d = dicts.find(function(g) { return g.id === m.dictId; });
     dictEl.textContent = d ? '📚 辞書：' + d.name : '';
-  } else {
-    dictEl.textContent = '';
-  }
-
+  } else { dictEl.textContent = ''; }
   document.getElementById('detail-text').textContent = m.text;
   showScreen('screen-detail');
 }
@@ -1146,18 +814,15 @@ function openDetail(id) {
 // ===== RENAME =====
 function openRenameDialog() {
   if (!currentDetailId) return;
-  var memos = getMemos();
-  var m = memos.find(function(x) { return x.id === currentDetailId; });
+  var m = getMemos().find(function(x) { return x.id === currentDetailId; });
   if (!m) return;
   document.getElementById('rename-input').value = m.title;
   showOverlay('rename-dialog');
 }
-
 function confirmRename() {
   var title = document.getElementById('rename-input').value.trim();
   if (!title) return;
-  var memos = getMemos();
-  memos = memos.map(function(m) {
+  var memos = getMemos().map(function(m) {
     if (m.id === currentDetailId) m.title = title;
     return m;
   });
@@ -1169,81 +834,49 @@ function confirmRename() {
 
 // ===== COPY WITH PROMPT =====
 function copyWithPrompt() {
-  var memos = getMemos();
-  var m = memos.find(function(x) { return x.id === currentDetailId; });
+  var m = getMemos().find(function(x) { return x.id === currentDetailId; });
   if (!m) return;
-
-  var text = m.text;
   var dicts = getDicts();
   var dictGroup = m.dictId ? dicts.find(function(g) { return g.id === m.dictId; }) : null;
-
   var output = '';
   if (dictGroup && dictGroup.terms.length > 0) {
-    output += '以下の専門用語辞書を参考に、議事録を要約してください。\n\n';
-    output += '【専門用語辞書】\n';
-    dictGroup.terms.forEach(function(t) {
-      output += '・' + t.from + ' → ' + t.to + '\n';
-    });
-    output += '\n【議事録本文】\n';
-    output += text;
+    output += '以下の専門用語辞書を参考に、議事録を要約してください。\n\n【専門用語辞書】\n';
+    dictGroup.terms.forEach(function(t) { output += '・' + t.from + ' → ' + t.to + '\n'; });
+    output += '\n【議事録本文】\n' + m.text;
   } else {
-    output += '以下の議事録を要約してください。\n\n【議事録本文】\n' + text;
+    output = '以下の議事録を要約してください。\n\n【議事録本文】\n' + m.text;
   }
-
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(output).then(function() {
-      showToast('📋 コピーしました！ChatGPT・Copilotに貼り付けてください');
-    }).catch(function() {
-      fallbackCopy(output);
-    });
-  } else {
-    fallbackCopy(output);
-  }
+      showToast('📋 コピーしました！AIに貼り付けてください');
+    }).catch(function() { fallbackCopy(output); });
+  } else { fallbackCopy(output); }
 }
-
 function fallbackCopy(text) {
   var ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.position = 'fixed'; ta.style.opacity = '0';
-  document.body.appendChild(ta);
-  ta.focus(); ta.select();
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
   try { document.execCommand('copy'); showToast('📋 コピーしました！'); }
   catch(e) { showToast('コピーに失敗しました'); }
   document.body.removeChild(ta);
 }
 
 // ===== SHARE =====
-function shareDetail() {
-  if (currentDetailId) shareMemo(currentDetailId);
-}
-
+function shareDetail() { if (currentDetailId) shareMemo(currentDetailId); }
 function shareMemo(id) {
-  var memos = getMemos();
-  var m = memos.find(function(x) { return x.id === id; });
+  var m = getMemos().find(function(x) { return x.id === id; });
   if (!m) return;
-
-  var shareText = '【議事録】' + m.title + '\n\n' + m.text;
-
+  var text = '【議事録】' + m.title + '\n\n' + m.text;
   if (navigator.share) {
-    navigator.share({
-      title: '【議事録】' + m.title,
-      text: shareText
-    }).catch(function() {});
-  } else {
-    fallbackCopy(shareText);
-    showToast('📋 クリップボードにコピーしました');
-  }
+    navigator.share({ title: '【議事録】' + m.title, text: text }).catch(function() {});
+  } else { fallbackCopy(text); showToast('📋 クリップボードにコピーしました'); }
 }
 
 // ===== DELETE =====
-function askDelete(id) {
-  deleteTargetId = id;
-  showOverlay('delete-dialog');
-}
+function askDelete(id) { deleteTargetId = id; showOverlay('delete-dialog'); }
 function confirmDelete() {
   if (!deleteTargetId) return;
-  var memos = getMemos().filter(function(m) { return m.id !== deleteTargetId; });
-  saveMemos(memos);
+  saveMemos(getMemos().filter(function(m) { return m.id !== deleteTargetId; }));
   deleteTargetId = null;
   hideOverlay('delete-dialog');
   if (currentScreen === 'screen-detail') showScreen('screen-list');
@@ -1251,18 +884,101 @@ function confirmDelete() {
   showToast('🗑️ 削除しました');
 }
 
-// ===== UTILS =====
-function esc(s) {
-  if (!s) return '';
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+// ===== DICT =====
+function updateDictSelects() {
+  var dicts = getDicts();
+  document.querySelectorAll('.dict-select').forEach(function(sel) {
+    var cur = sel.value;
+    sel.innerHTML = '<option value="">なし</option>' +
+      dicts.map(function(g) { return '<option value="'+g.id+'">'+esc(g.name)+'</option>'; }).join('');
+    sel.value = cur;
+  });
+}
+function renderDictGroups() {
+  var dicts = getDicts();
+  var container = document.getElementById('dict-groups-container');
+  if (!container) return;
+  if (dicts.length === 0) {
+    container.innerHTML = '<div style="padding:12px 16px;font-size:13px;color:var(--text-muted)">辞書グループがありません</div>';
+    updateDictSelects(); return;
+  }
+  container.innerHTML = dicts.map(function(g) {
+    var termsHtml = g.terms.map(function(t) {
+      return '<div class="dict-term-row">' +
+        '<span class="dict-term">'+esc(t.from)+'</span>' +
+        '<span class="dict-arrow">→</span>' +
+        '<span class="dict-replace">'+esc(t.to)+'</span>' +
+        '<button class="dict-del-term" data-gid="'+g.id+'" data-tid="'+t.id+'" type="button">×</button></div>';
+    }).join('');
+    return '<div class="dict-group">' +
+      '<div class="dict-group-header">' +
+      '<span class="dict-group-name">'+esc(g.name)+'</span>' +
+      '<div class="dict-group-actions">' +
+      '<button class="dict-small-btn add-term" data-gid="'+g.id+'" type="button">＋用語</button>' +
+      '<button class="dict-small-btn del-group" data-gid="'+g.id+'" type="button">削除</button>' +
+      '</div></div>' + termsHtml + '</div>';
+  }).join('');
+  container.querySelectorAll('.add-term').forEach(function(btn) {
+    var gid = btn.getAttribute('data-gid');
+    addTap2(btn, function() { dictGroupTarget = gid; document.getElementById('dict-term-from').value = ''; document.getElementById('dict-term-to').value = ''; showOverlay('dict-term-dialog'); });
+  });
+  container.querySelectorAll('.del-group').forEach(function(btn) {
+    var gid = btn.getAttribute('data-gid');
+    addTap2(btn, function() { saveDicts(getDicts().filter(function(g) { return g.id !== gid; })); renderDictGroups(); showToast('🗑️ グループを削除しました'); });
+  });
+  container.querySelectorAll('.dict-del-term').forEach(function(btn) {
+    var gid = btn.getAttribute('data-gid');
+    var tid = btn.getAttribute('data-tid');
+    addTap2(btn, function() {
+      var d = getDicts().map(function(g) { if (g.id===gid) { g.terms=g.terms.filter(function(t){return t.id!==tid;}); } return g; });
+      saveDicts(d); renderDictGroups();
+    });
+  });
+  updateDictSelects();
 }
 
-function showToast(msg) {
-  var t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(function() { t.classList.remove('show'); }, 2800);
-}
+// ===== INIT =====
+window.onload = function() {
+  updateDictSelects();
+
+  addTap('nav-rec', function() { showScreen('screen-rec'); });
+  addTap('nav-list', function() { showScreen('screen-list'); });
+  addTap('btn-settings-rec', function() { showScreen('screen-settings'); });
+  addTap('btn-settings-list', function() { showScreen('screen-settings'); });
+  addTap('btn-settings-back', function() { goBack(); });
+  addTap('btn-detail-back', function() { showScreen('screen-list'); });
+  addTap('detail-title', function() { openRenameDialog(); });
+  addTap('rec-btn', function() { toggleRecording(); });
+  addTap('save-btn', function() { openSaveDialog(); });
+  addTap('btn-resume', function() { startRecording(false); });
+  addTap('btn-new-rec', function() { confirmNewRecording(); });
+  addTap('btn-copy-prompt', function() { copyWithPrompt(); });
+  addTap('btn-share-detail', function() { shareDetail(); });
+  addTap('btn-save-cancel', function() { hideOverlay('save-dialog'); });
+  addTap('btn-save-confirm', function() { confirmSave(); });
+  addTap('btn-rename-cancel', function() { hideOverlay('rename-dialog'); });
+  addTap('btn-rename-confirm', function() { confirmRename(); });
+  addTap('btn-del-cancel', function() { hideOverlay('delete-dialog'); });
+  addTap('btn-del-confirm', function() { confirmDelete(); });
+  addTap('btn-newrec-cancel', function() { hideOverlay('newrec-dialog'); });
+  addTap('btn-newrec-confirm', function() { hideOverlay('newrec-dialog'); startRecording(true); });
+  addTap('btn-add-dict-group', function() { document.getElementById('dict-group-name-input').value = ''; showOverlay('dict-group-dialog'); });
+  addTap('btn-dict-group-cancel', function() { hideOverlay('dict-group-dialog'); });
+  addTap('btn-dict-group-confirm', function() {
+    var name = document.getElementById('dict-group-name-input').value.trim();
+    if (!name) return;
+    var d = getDicts(); d.push({ id: Date.now().toString(), name: name, terms: [] });
+    saveDicts(d); renderDictGroups(); hideOverlay('dict-group-dialog'); showToast('✅ グループを追加しました');
+  });
+  addTap('btn-term-cancel', function() { hideOverlay('dict-term-dialog'); });
+  addTap('btn-term-confirm', function() {
+    var from = document.getElementById('dict-term-from').value.trim();
+    var to = document.getElementById('dict-term-to').value.trim();
+    if (!from || !to) { showToast('読みと正式名称を入力してください'); return; }
+    var d = getDicts().map(function(g) { if (g.id===dictGroupTarget) { g.terms.push({id:Date.now().toString(),from:from,to:to}); } return g; });
+    saveDicts(d); renderDictGroups(); hideOverlay('dict-term-dialog'); showToast('✅ 用語を追加しました');
+  });
+};
 </script>
 </body>
 </html>
